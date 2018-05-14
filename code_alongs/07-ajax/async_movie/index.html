@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form class="search-form" action="">
+    <input type="text" class="query-input">
+    <button>search</button>
+  </form>
+
+  <div class='results'>
+
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+
+    //var searchForm = document.querySelector('.search-form');
+    //var queryInput = document.querySelector('.query-input');
+    //var resultsDiv = document.querySelector('.results')
+    var $searchForm = $('.search-form');
+    var $queryInput = $('.query-input');
+    var $resultsDiv = $('.results')
+    
+
+
+
+    //searchForm.addEventListener
+    $searchForm.on('submit', function (event) {
+      event.preventDefault();
+      
+      //clear list before user makes a new search
+      $resultsDiv.empty();
+
+      //$(event.target).text('abc') - not relevant now
+      //console.log(queryInput.value)
+      console.log($queryInput.val());
+
+      // fetch data from omdb
+      var options = {                       //queryInput.value
+        url: 'http://www.omdbapi.com/?s=' + $queryInput.val() + '&apikey=2f6435d9'
+      }
+
+      // call-back - signature
+      var showResults = function (res) {
+        res.Search.forEach(function (movie) {
+          console.log(movie.Title);
+          
+          //append it back to the dom
+          // var newElem = document.createElement('p')
+          // newElem.textContent = movie.Title
+
+          // resultsDiv.appendChild(newElem);
+          //var $newElem = $('<p>')  // -> create paragraph vs $('p') -> search
+           var $h2 = $('<h2>').addClass('title')
+           var $a = $('<a>')
+            .attr('target','_blank')
+            .attr('href','http://www.imdb.com/title/' + movie.imdbID)  
+            .text(movie.Title) 
+
+           $h2.append($a);
+
+           $resultsDiv.append($h2);
+          });
+      }
+      $.ajax(options).done(showResults)
+
+    })
+
+  </script>
+</body>
+
+</html>

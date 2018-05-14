@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    // var account = {
+    //   balance:0,
+    //   deposit: function(amount) {
+    //     account.balance = account.balance + amount
+    //   }
+    // }
+
+  //module pattern
+    var createAccount = function(name) {
+
+      var balance = 0 //privacy - users can't change the balance this way
+
+      var account = {
+        name: name,
+        getBalance: function(){
+          return balance;
+        },
+        deposit: function(a) {
+          balance = balance + a
+        }
+      }
+      return account
+    }
+  var account1 = createAccount("Megan")
+  var account2 = createAccount("Peter")
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<%# form helps - functions that generate html %>
+
+
+<%= form_for @sale do |f| %>
+
+  <label for="">description</label>
+  <%= f.text_field :description %>
+
+  <label for="">address</label>
+  <%= f.text_field :address %>
+
+  <label for="">images</label>
+  <%= f.file_field :images, multiple: true %>
+
+  <button>create sale</button>
+
+<% end %>
+
+
+<%# <%=form_tag '/sales', method: 'post', multipart: true do %>
+
+
+  <%# <label for="">description</label>
+  <textarea name="description"></textarea>
+  <label for="">address</label>
+  <input type="text" name="address">
+  
+  <label for="">Images</label>
+<%= file_field_tag :images, multiple: true %>
+
+  <%# <button>create sale</button> %>
+
+<%# <%end%> 
+
+<%# <a href="">go back to home sweet home</a>
+<%# function - link_to; similar to helpers e.g login & current user %>
+<%# <%=link_to 'go back to home sweet home'%>

@@ -1,0 +1,13 @@
+body {
+    font-family: 'Caveat Brush', cursive;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.done {
+    text-decoration: line-through;
+}

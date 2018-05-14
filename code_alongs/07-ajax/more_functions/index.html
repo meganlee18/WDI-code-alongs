@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  
+  //function expression -> define this before using
+  // declaration      expression
+  var launchMissile = function(){
+
+  }
+
+
+  // hoisting
+  if ('a' in window) {
+    var a = 1;
+  }
+  
+  console.log(a);
+
+  // launchMissile()
+  
+  // function declaration -> can be used before definition
+  // function launchMissile() {
+  //   console.log("missed")
+  // }
+
+  // function expression
+  // function is assigned to a variable
+  var x = function(){}
+
+  // function declaration - for debugging purposes and hoisting 
+  // (this will come before the expression)
+  // a name given to the function
+  function x() {
+
+  }
+
+  /*
+  JavaScript default:
+  1 pass - declaration
+  2nd pass - expression
+  */
+  
+  </script>
+</body>
+</html>

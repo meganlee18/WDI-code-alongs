@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+  <link href="https://fonts.googleapis.com/css?family=Fugaz+One" rel="stylesheet">
+  <link rel='stylesheet' href='/stylesheets/main.css'>
+</head>
+<body>
+
+<% if session[:user_id] %>
+  Logged in as <%= User.find(session[:user_id]).email %>
+  <form action="/session" method = "post">
+    <input type='hidden' name='_method' value='delete'>
+    <button>logout</button>
+  </form>
+  <%end%>
+
+  <%= yield %>
+
+</body>
+</html>

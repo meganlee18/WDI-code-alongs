@@ -1,0 +1,88 @@
+
+/* Order of Specifity: id, class, tag */
+/* units for screen resolution - px is not reliable for calculating pixels.
+e.g px, pt, %, em 
+
+1 em = 16 px 
+2 em = 32 px
+base font size 
+
+if no font size is set, the default font size is 16px
+
+px is absolute - cannot change. em is relative which is something that may change
+
+ems inherit as they progress down from parent to child e.g
+h1 - 2em
+p - 2em * 2em (if set at 2em in style)
+2rem is the alternative - to be based on 2*base font(16px)
+
+best practice - set font size at the very last to avoid confusion
+
+*/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: mistyrose;
+	font-size: 40px;
+}
+
+div {
+		background-color: yellow;
+		min-height: 100px;
+		margin-bottom: 1px;
+}
+
+
+@media (min-width: 40em) {
+
+	body {
+		background-color:plum;
+	}
+
+	div {
+		background-color: yellow;
+		color: black;
+		padding:30px;
+		height: 200px;
+		width: 40%;
+		float: left;
+		margin: 10px;
+}
+
+@media (min-width: 70em) {
+
+	body {
+		background-color: red;
+	}
+
+	div {
+		background-color:blue;
+		color: white;
+		float: left;
+		height: 100px;
+		width: 20%;
+		margin: 10px;
+
+}
+
+
+
+/*
+@media (min-width: 40em) {
+
+	body {
+		background-color:plum;
+
+	}
+}
+
+@media (min-width: 70em) {
+
+	body {
+		background-color: red;
+	}
+}
+

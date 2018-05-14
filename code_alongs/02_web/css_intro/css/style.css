@@ -1,0 +1,38 @@
+
+/* Searching by tags */
+h1 {
+	color: red;	
+}
+/* descendent selector */
+article h1 {
+	color: purple;
+}
+
+p {
+	background-color: mistyrose;
+}
+
+/*direct child selector > p (only one level)*/
+article p {
+	color: green;
+}
+
+/* Very specific rule - should avoid most times
+article footer > p.joy {
+
+}
+*/
+
+/* search by id - id has to be unique*/
+#warning {
+	font-size: 30px;	
+}
+
+.title {
+	color: red;
+}
+
+/*Op for just enough */
+.joy {
+color:blue;
+}

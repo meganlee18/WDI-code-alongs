@@ -1,0 +1,8 @@
+h1 {
+  font-family: 'Fugaz One', cursive;
+  color: gray;
+}
+
+h1 p {
+  display: inline-block;
+}
