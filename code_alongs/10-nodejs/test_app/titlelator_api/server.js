@@ -17,11 +17,19 @@ app.get('/', (req, res)=> {
   res.send(`Hi ${name}, welcome to titlelator API`)
 })
 
-app.get('/:keyword', (req, res) => {
-  
+app.get('/api/titles',(req, res) => {
+  const titles = [
+    'dogs love you',
+    'a million ways to get rich',
+    'how to be happy',
+    'what a wonderful world',
+    'smile and everything will be alright'
+  ]
+  res.json(titles)
 })
 
-app.get('/api/titles', (req, res) => {
+
+app.get('/api/random_title', (req, res) => {
   const titles = [
     'dogs love you',
     'a million ways to get rich',

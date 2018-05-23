@@ -1,0 +1,22 @@
+.tweetbox__button {
+  background-color: #4AB3F4;
+  color: white;
+}
+
+.tweetbox__button:hover {
+  background-color: lightblue;
+  color: black;
+}
+
+.tweetbox__button--disabled {
+  background-color: grey;
+  color: white;
+}
+
+.tweetbox__span--warning {
+  color: red;
+}
+
+.tweetbox__textarea {
+  width: 50%;
+}
