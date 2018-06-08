@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button>deposit $1</button>
+  <script>
+
+    var account = {
+      balance: 0,
+      deposit: function(amount) {
+
+      //context changes all the time, therefore 'this' may refer to other things
+        this.balance += amount
+        
+        //another function is called - 'this' is no longer referring to account
+        setTimeout(() => {
+          this.balance += 5
+        }, 1000)
+      },
+      withdraw: function(amount){
+        this.balance -= amount
+      },
+      addOneDollar: function(){
+        this.balance += 1
+      }
+    }
+
+    var btn = document.querySelector("button")
+    btn.addEventListener("click", account.addOneDollar)
+
+    // account.deposit(10)
+
+  //the lovely this keyword
+  // - every function when it's running has a context - this keyword points to it
+  // - it all depends on how you call the function (call site)
+
+  // 1. default binding rule
+  function car(){
+    console.log(this)
+  }
+
+  car() //this => global object(window)
+        //when you call a function with no object in front of it
+
+  //2. implicit binding
+  // account.deposit(10) //this => account
+
+  //3. explicit binding
+  var megsAccount = {
+    balance: 1000000
+  }
+  //                     this
+  // account.addOneDollar.call(megsAccount) //calling a function with this as the context
+  // account.addOneDollar.apply(megsAccount) //calling this function based on the previous context
+  // account.deposit.call(megsAccount, 10) //passing in argument at the end
+  //this overwrites implicit binding
+
+
+  //4. hard binding
+
+  //difference bwt bind & call -> bind returns a new function
+  //overalls previous objects and functions
+  var newCarFunction = car.bind(account) //bind es5
+
+  //5. constructor function with new
+
+  //object is created when new is written
+  //function returns a new object
+  //convention: make the name capital if using constructor function
+  function MakeCar() {
+    this.make = 'honda'
+  }
+
+  var poofObj = new MakeCar()
+
+  </script>
+</body>
+</html>
